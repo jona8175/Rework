@@ -137,7 +137,7 @@ scene.background = new THREE.Color( params.color );
 
 
 gltfLoader.load(
-    '/models/Scenes/BlockDiagram.gltf',
+    '/models/Scenes/SceneOverview.gltf',
     (gltf) =>
     {
         gltf.scene.scale.set(1, 1, 1)
@@ -155,9 +155,9 @@ gltfLoader.load(
 const raycaster = new THREE.Raycaster()
 const points = [
     {
-        position: new THREE.Vector3(0.05, 0.15, 0.45),
+        position: new THREE.Vector3(-0.7, 0.85, -0.3),
         element: document.querySelector('.point-0')
-    },
+    }/**,
     {
         position: new THREE.Vector3(-0.25, 0.33, 0.4),
         element: document.querySelector('.point-1')
@@ -169,18 +169,18 @@ const points = [
     {
         position: new THREE.Vector3(0.05, 0.35, -0.3),
         element: document.querySelector('.point-3')
-    }
+    }*/
 ]
 
 /** add line */
 const line_material = new THREE.LineBasicMaterial({
 	color: "black",
-    linewidth: 65,
+    linewidth: 65
 });
 
 const guidepoints = [];
-guidepoints.push( new THREE.Vector3( -0.25, 0, 0.4 ) );
-guidepoints.push( new THREE.Vector3( -0.25, 0.33, 0.4 ) );
+guidepoints.push( new THREE.Vector3( -0.7, 0.6, -0.3 ) );
+guidepoints.push( new THREE.Vector3( -0.7, 0.85, -0.3 ) );
 
 const geom = new THREE.BufferGeometry().setFromPoints( guidepoints );
 
@@ -239,14 +239,19 @@ gltfLoader.load(
 
 /**
  * Lights
- */
+
 const directionalLight = new THREE.DirectionalLight('#ffffff', 3)
-directionalLight.castShadow = true
+directionalLight.castShadow = false
 directionalLight.shadow.camera.far = 15
 directionalLight.shadow.mapSize.set(1024, 1024)
 directionalLight.shadow.normalBias = 0.05
 directionalLight.position.set(0.25, 3, - 2.25)
 scene.add(directionalLight)
+ */
+
+const light = new THREE.AmbientLight( 0x404040 ); // soft white light
+light.intensity = 30
+scene.add( light );
 
 /**
  * Sizes
@@ -276,7 +281,7 @@ window.addEventListener('resize', () =>
  */
 // Base camera
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
-camera.position.set(3, 1,  3)
+camera.position.set(-1, 1.5,  1)
 scene.add(camera)
 
 // Controls
