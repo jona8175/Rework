@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mixing HTML and WebGL</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!--Slider Stuff-->
+    <div class="slidecontainer">
+        <p>Default range slider:</p>
+        <input id="slider" type="range" min="0" max="3" step="0.05"  value="0">
+        <output id="output"></output>
+    </div>
+
+    <canvas class="webgl"></canvas>
+
+    <div class="loading-bar"></div>
+
+    <div class="point point-0">
+        <div class="label"> <a href="https://www.w3schools.com/html/html_links.asp"> Sander </a> </div>
+        <div class="text"> Im Gletschervorfeld.</div>
+    </div>
+    <div class="point point-1">
+        <div class="label">UferMoräne</div>
+        <div class="text"> Sie war seitlich vom Gletscher und besteht aus erosions Material vom Gletscher und den angrenzenden Berghängen. Nach dem Abschmelzen des Gletschers ebleibt ein Wall am Hangfuß des Tals. </div>
+    </div>
+    <div class="point point-2">
+        <div class="label">See</div>
+        <div class="text">Durch die Moräne angestaut.</div>
+    </div>
+    <div class="point point-3">
+        <div class="label">Gletscher</div>
+        <div class="text"> Zusatz Text. </div>
+    </div>
+    
+    <script type="module" src="./script.js"></script>
+</body>
+</html>
